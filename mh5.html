@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Insights - Health Prediction</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.1.2/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Simulate AI-powered insights based on health data
+        function generateAIInsights() {
+            // Simulated health data insights
+            const insights = {
+                healthRisk: "Moderate risk of hypertension based on your blood pressure readings.",
+                lifestyleRecommendation: "Consider reducing sodium intake and increasing physical activity.",
+                futurePredictions: "Potential risk of diabetes due to family history and recent glucose levels.",
+                healthScore: 72, // Simulate a health score out of 100
+            };
+
+            // Display AI insights
+            document.getElementById('healthRisk').innerText = insights.healthRisk;
+            document.getElementById('lifestyleRecommendation').innerText = insights.lifestyleRecommendation;
+            document.getElementById('futurePredictions').innerText = insights.futurePredictions;
+            document.getElementById('healthScore').innerText = `${insights.healthScore}/100`;
+        }
+
+        // Simulate fetching health data for visualization
+        function generateHealthTrends() {
+            const bloodPressureData = [120, 125, 130, 135, 140, 145, 150]; // Simulated BP readings
+            const timeLabels = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'];
+
+            const ctx = document.getElementById('bpChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: timeLabels,
+                    datasets: [{
+                        label: 'Systolic Blood Pressure (mmHg)',
+                        data: bloodPressureData,
+                        borderColor: '#FF5733',
+                        fill: false,
+                        tension: 0.1,
+                    }]
+                },
+                options: {
+                    scales: {
+                        x: { beginAtZero: true },
+                        y: { min: 100, max: 160 },
+                    },
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    }
+                }
+            });
+        }
+
+        // Initialize the page with AI insights and health trends
+        window.onload = function() {
+            generateAIInsights();
+            generateHealthTrends();
+        };
+    </script>
+</head>
+<body class="bg-gray-50">
+    <div class="container mx-auto px-6 py-12">
+        <div class="bg-white p-8 rounded-lg shadow-lg">
+            <h1 class="text-3xl font-bold text-center text-gray-700 mb-6">AI Health Insights</h1>
+
+            <!-- Health Summary Section -->
+            <div class="mb-8">
+                <h2 class="text-xl font-semibold text-gray-700">Health Summary</h2>
+                <div class="bg-gray-50 p-4 rounded-lg shadow-md mt-4">
+                    <p><strong>Name:</strong> John Doe</p>
+                    <p><strong>Age:</strong> 45</p>
+                    <p><strong>Height:</strong> 5'10"</p>
+                    <p><strong>Weight:</strong> 185 lbs</p>
+                    <p><strong>Recent Health Issues:</strong> Hypertension, High cholesterol</p>
+                </div>
+            </div>
+
+            <!-- AI Insights Section -->
+            <div class="mb-8">
+                <h2 class="text-xl font-semibold text-gray-700">AI-Generated Insights</h2>
+                <div class="bg-gray-50 p-4 rounded-lg shadow-md mt-4">
+                    <p><strong>Health Risk:</strong> <span id="healthRisk">Loading...</span></p>
+                    <p><strong>Lifestyle Recommendation:</strong> <span id="lifestyleRecommendation">Loading...</span></p>
+                    <p><strong>Future Health Prediction:</strong> <span id="futurePredictions">Loading...</span></p>
+                    <p><strong>Your Health Score:</strong> <span id="healthScore">Loading...</span></p>
+                </div>
+            </div>
+
+            <!-- Health Trends Section (Graph/Chart) -->
+            <div class="mb-8">
+                <h2 class="text-xl font-semibold text-gray-700">Health Trends</h2>
+                <div class="bg-gray-50 p-4 rounded-lg shadow-md mt-4">
+                    <canvas id="bpChart" height="400"></canvas>
+                </div>
+            </div>
+
+            <!-- Actionable Recommendations Section -->
+            <div class="mb-8">
+                <h2 class="text-xl font-semibold text-gray-700">Actionable Health Recommendations</h2>
+                <div class="bg-gray-50 p-4 rounded-lg shadow-md mt-4">
+                    <ul class="list-disc pl-6">
+                        <li>Increase physical activity to improve cardiovascular health.</li>
+                        <li>Monitor your blood pressure regularly and consult a doctor if necessary.</li>
+                        <li>Reduce your intake of saturated fats and increase your fiber intake.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

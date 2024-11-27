@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthcare Dashboard</title>
+    <link rel="stylesheet" href="mh.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <img src="fig1.png" alt="">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#login">Login</a></li>
+                <li><a href="mh3.html">Medical Records</a></li>
+                <li><a href="mh2.html">Emergency Access</a></li>
+                <li><a href="mh5.html">AI Insights</a></li>
+                <li><a href="mh4.html">Wearable Integration</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Sections -->
+    <section id="login" class="section login">
+        <h2>Login to Your Account</h2>
+        <form id="login-form">
+            <input type="text" id="username" placeholder="Username" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
+    </section>
+
+    <section id="medical-records" class="section records">
+        <h2>Medical Records</h2>
+        <div class="card-container">
+            <button id="upload-record" class="card">
+                <h3>Upload Medical Record</h3>
+                <p>Upload your latest prescriptions or test results</p>
+            </button>
+            <div id="records-list">
+                <!-- Records will be displayed here -->
+            </div>
+        </div>
+    </section>
+
+    <section id="emergency-access" class="section emergency">
+        <h2>Emergency Access</h2>
+        <button id="qr-code" class="card">
+            <h3>Generate QR Code</h3>
+            <p>Quick access to your medical data in case of an emergency</p>
+        </button>
+        <div id="qr-code-container"></div>
+    </section>
+
+    <section id="ai-insights" class="section ai">
+        <h2>AI-Driven Insights</h2>
+        <div id="ai-results">
+            <!-- AI health insights will go here -->
+        </div>
+    </section>
+
+    <section id="wearable-integration" class="section wearable">
+        <h2>Wearable Integration</h2>
+        <button id="sync-wearables" class="card">
+            <h3>Sync Your Wearables</h3>
+            <p>Connect your devices like Fitbit, Apple Health, etc.</p>
+        </button>
+        <div id="wearable-data"></div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>Healthcare Dashboard &copy; 2024</p>
+    </footer>
+
+    <script src="mh.js"></script>
+</body>
+</html>

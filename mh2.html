@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Emergency Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.1.2/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        .container {
+            max-width: 450px;
+            margin: 5% auto;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            font-size: 32px;
+            font-weight: 700;
+            color: #4B6F44;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .emergency-header {
+            font-size: 20px;
+            font-weight: 500;
+            color: #E53935;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .form-input {
+            margin-bottom: 15px;
+        }
+
+        .btn-primary {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px;
+            width: 100%;
+            border-radius: 5px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn-primary:hover {
+            background-color: #45a049;
+        }
+
+        .forgot-password {
+            text-align: center;
+            margin-top: 15px;
+            color: #4CAF50;
+        }
+
+        .forgot-password a {
+            text-decoration: none;
+            color: #4CAF50;
+        }
+
+        .forgot-password a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <span>EmergMed</span>
+        </div>
+        <div class="emergency-header">
+            Doctor Emergency Access
+        </div>
+
+        <form action="/doctor-login" method="POST">
+            <div class="form-input">
+                <label for="email" class="block text-sm font-medium text-gray-700">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="doctor@example.com" required class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500">
+            </div>
+
+            <div class="form-input">
+                <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500">
+            </div>
+
+            <button type="submit" class="btn-primary">Login for Emergency Access</button>
+
+            <div class="forgot-password">
+                <p>Forgot your password? <a href="/reset-password">Reset it here</a></p>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // Optional: Handle any client-side form validation here if needed
+    </script>
+</body>
+</html>

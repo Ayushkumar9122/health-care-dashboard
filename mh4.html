@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wearable Integration</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.1.2/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f7fafc;
+        }
+        
+        .card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+
+        .section-header {
+            font-size: 24px;
+            font-weight: 600;
+            color: #4CAF50;
+            margin-bottom: 20px;
+        }
+
+        .data-card {
+            background-color: #f7fafc;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        .btn-connect {
+            background-color: #1E90FF;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 6px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn-connect:hover {
+            background-color: #1C7ED6;
+        }
+
+        .data-item {
+            font-size: 18px;
+            font-weight: 500;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .chart-container {
+            height: 300px;
+            width: 100%;
+            margin-top: 30px;
+        }
+
+        .instructions {
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            margin-top: 30px;
+        }
+
+        .instruction-text {
+            font-size: 16px;
+            color: #333;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container mx-auto px-6 py-12">
+        <div class="card">
+            <div class="section-header">Wearable Device Integration</div>
+
+            <!-- Device Connection Button -->
+            <button class="btn-connect" id="connectBtn">
+                Connect Your Wearable Device
+            </button>
+
+            <!-- Device Data Section -->
+            <div class="data-card">
+                <div class="data-item">
+                    <strong>Heart Rate:</strong> <span id="heartRate">-</span> BPM
+                </div>
+                <div class="data-item">
+                    <strong>Steps Taken:</strong> <span id="steps">-</span> steps
+                </div>
+                <div class="data-item">
+                    <strong>Calories Burned:</strong> <span id="calories">-</span> kcal
+                </div>
+            </div>
+
+            <!-- Graph/Chart Section (Placeholder for real data visualization) -->
+            <div class="chart-container" id="chartContainer">
+                <!-- Placeholder for chart (could be created with Chart.js or other libraries) -->
+                <canvas id="heartRateChart"></canvas>
+            </div>
+
+            <!-- Instructions Section -->
+            <div class="instructions">
+                <div class="instruction-text">
+                    <p>To integrate your wearable device:</p>
+                    <ol class="list-decimal ml-6">
+                        <li>Click the "Connect Your Wearable Device" button.</li>
+                        <li>Authorize access to your device’s data via the authentication flow.</li>
+                        <li>Your data will start syncing automatically.</li>
+                        <li>Monitor your health metrics on this page in real-time.</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Include a Chart.js script for rendering the heart rate chart -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        // Sample data (replace this with live data from wearable API)
+        let heartRateData = [72, 75, 78, 80, 79, 77, 73];
+        let timeLabels = ['12:00 PM', '12:10 PM', '12:20 PM', '12:30 PM', '12:40 PM', '12:50 PM', '1:00 PM'];
+
+        // Chart.js to render heart rate data
+        const ctx = document.getElementById('heartRateChart').getContext('2d');
+        const heartRateChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: timeLabels,
+                datasets: [{
+                    label: 'Heart Rate (BPM)',
+                    data: heartRateData,
+                    borderColor: '#4CAF50',
+                    fill: false,
+                    tension: 0.1
+                }]
+            }
+        });
+
+        // Simulate fetching wearable data
+        function fetchWearableData() {
+            // Example: Random data for heart rate, steps, and calories
+            const heartRate = Math.floor(Math.random() * 40) + 60; // Simulated heart rate (60 - 100 BPM)
+            const steps = Math.floor(Math.random() * 10000); // Simulated step count
+            const calories = Math.floor(Math.random() * 500); // Simulated calories burned
+
+            // Update the UI with the fetched data
+            document.getElementById('heartRate').innerText = heartRate;
+            document.getElementById('steps').innerText = steps;
+            document.getElementById('calories').innerText = calories;
+        }
+
+        // Connect Button Event Listener
+        document.getElementById('connectBtn').addEventListener('click', () => {
+            alert('Please follow the authentication process to sync your device data.');
+            // Example: Simulate fetching wearable data after connection
+            fetchWearableData();
+        });
+    </script>
+</body>
+</html>
